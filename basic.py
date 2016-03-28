@@ -80,6 +80,22 @@ def is_prime(n):
 
 print P(prime_sum, D3)
 
+#Card problems
+suits = 'SHDC'
+ranks = 'A23456789TJQK'
+deck = cross(ranks, suits)
+print len(deck)
+
+Hands = combos(deck, 5)
+print len(Hands), "using basic combinatorial", choose(52, 5)
+print random.sample(Hands, 5)
+
+#Prob of being dealy a flush(5 cards of the same suit)
+def flush(hand):
+    return any(hand.count(suit) == 5 for suit in suits)
+
+print P(flush, Hands)
+
 #Test code
 even_roll={2,4,6}
 print "Expected prob:", P(even_roll,D)
